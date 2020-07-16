@@ -7,17 +7,25 @@
   <script src="vue.js"></script>
 </head>
 <body>
-<div id="app" @mousemove="updateCoordinates">
+<div id="app">
   <h1 v-once>{{ title }}</h1>
-  <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+  <p>{{ sayHello() }} - <a :href="link">Google</a></p>
   <hr>
-  <p>{{ counter }}
-    <button @click="increaseCount(3)">More!</button>
-    <button @click="decreaseCount">Less!</button>
+  <p>{{ counter }} | {{ secondCounter }}
+    <button @click="counter++">Increase!</button>
+    <button @click="counter--">Decrease!</button>
+    <button @click="secondCounter+=2">Increase other counter!</button>
+    <p>Result:  {{ result() }} | {{ output }}</p>
   </p>
-  <p>Coordinates: {{ x }}/{{ y }} - <span @mousemove.stop>D E A D   Z O N E</span></p>
-  <input type="text" @keyup.enter="alertMe">
+  <p @mousemove="updateCoordinates">Coordinates: {{ x }}/{{ y }} - <span @mousemove.stop>D E A D   Z O N E</span></p>
+  <div>
+    <input type="text" @keyup.enter="alertMe">
+  </div>
+  <input type="text" v-model='name'>
+  <p>{{ name }}</p>
 </div>
+
+
 <script>
   new Vue({
     el: '#app',
@@ -25,19 +33,28 @@
       title: "Hello World!",
       link: "http://google.com",
       counter: 0,
+      secondCounter: 0,
       x: 0,
-      y:0
+      y:0,
+      name: 'Szymon'
+    },
+    computed: {
+      output() {
+        console.log('Computed');
+        return this.counter > 5 ? "Greater than 5" : "Smaller than 5";
+      }
+    },
+    watch: {
+      counter: function (value) {
+        setTimeout(() => {  
+          this.counter = 0;
+        },2000);
+      }
     },
     methods: {
       sayHello: function() {
         this.title = 'Hello!';
         return this.title;
-      },
-      increaseCount: function(step) {
-        this.counter += step;
-      },
-      decreaseCount() {
-        this.counter--;
       },
       updateCoordinates(event) {
         this.x = event.clientX;
@@ -45,6 +62,10 @@
       },
       alertMe() {
         alert('Alarm!')
+      },
+      result() {
+        console.log('Method');
+        return this.counter > 5 ? "Greater than 5" : "Smaller than 5";
       }
     }
   });
