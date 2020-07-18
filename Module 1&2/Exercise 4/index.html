@@ -9,7 +9,7 @@
   </div>
   <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
   <div class="parent">
-    <div :class="[{white: isWhite}, {blue: isBlue}, {green: isGreen}]">I got no class :(</div>
+    <div :class="['bg', 'text', {white: isWhite}, {blue: isBlue}, {green: isGreen}]">I got no class :(</div>
     <button @click="makeWhite">Make White</button>
     <button @click="makeBlue">Make Blue</button>
     <button @click="makeGreen">Make Green</button>

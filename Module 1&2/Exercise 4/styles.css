@@ -4,7 +4,18 @@
   border: 1px solid black;
 }
 
+.bg {
+  background-color: rgb(202, 214, 35);
+  height: 200px;
+  width: 200px;
+}
+
+.text {
+  color: rgb(32, 126, 15);
+}
+
 .white {
+  color: black;
   justify-content: end; 
   align-items: center;
   background-color: white;
@@ -24,7 +35,7 @@
 }
 
 .blue {
-  justify-content: center;
+  
   align-items: center;
   background-color: blue;
   width: 100px;
@@ -57,8 +68,6 @@
 }
 
 .parent button {
-  height: 50px;
-  justify-content: center;
   align-self: center;
 }
 
