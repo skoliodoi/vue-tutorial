@@ -7,12 +7,34 @@ new Vue({
     isWhite: false,
     isBlue: false,
     isGreen: false,
+    appears: '',
+    color: '',
+    height: '',
+    progressHeight: 20,
+    progressWidth: 0,
+    counter: 0
   },
   computed: {
     styleChange() {
       return {
         highlight: this.effect,
         shrink: !this.effect
+      }
+    },
+    styleInput() {
+      return {
+        backgroundColor: this.color,
+        height: this.height + 'px',
+        width: this.height*2 + 'px'
+      }
+    },
+    styleProgress() {
+      return {
+        height: this.progressHeight + 'px',
+        width: this.progressWidth + 'px',
+        backgroundColor: 'green',
+        color: '#fff',
+        textAlign: 'center'
       }
     }
   },
@@ -21,6 +43,14 @@ new Vue({
       setInterval(() => {
         this.effect = !this.effect
       }, 2000);
+    },
+    startProgress() {
+      setInterval(() => {
+        if (this.progressWidth !== 200) {
+          this.progressWidth+=2;
+          this.counter++;
+        }
+      }, 100);
     },
     makeWhite() {
       if (this.isWhite == true) {
