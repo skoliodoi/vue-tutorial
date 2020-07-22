@@ -4,6 +4,7 @@ new Vue ({
     playerHealth: 100,
     monsterHealth: 100,
     gameIsRunning: false,
+    turns: []
   },
   computed: {
 
@@ -11,28 +12,51 @@ new Vue ({
   methods: {
     startGame() {
       this.gameIsRunning = !this.gameIsRunning;
-      this. playerHealth = 100;
+      this.playerHealth = 100;
       this.monsterHealth = 100;
+      this.turns = [];
     },
     attack() {
-      this.monsterHealth -= this.calculateDamage(3, 10);
+      var damage = this.calculateDamage(3, 10);
+      this.monsterHealth -= damage;
+      this.turns.unshift({
+        isPlayer: true,
+        text: 'Player dealt ' + damage + ' points of damage!'
+      })
+
       if (this.checkWin()) {
         return;
       }
       this.monsterAttack()
     },
     specialAttack() {
-      this.monsterHealth -= this.calculateDamage(10, 20);
+      var damage = this.calculateDamage(10, 20);
+      this.monsterHealth -= 
+      this.turns.unshift({
+        isPlayer: true,
+        text: 'Player used a special attack dealing ' + damage + ' points of damage!'
+      })
       if (this.checkWin()) {
         return;
       }
       this.monsterAttack()
     },
     heal() {
+      if (this.playerHealth <=90) {
+        this.playerHealth += 10;
+      } else {
+        this.playerHealth = 100;
+      }
 
+      this.turns.unshift({
+        isPlayer: true,
+        text: 'Player healed 10 points of health!'
+      })
+
+      this.monsterAttack();
     },
     giveUp() {
-
+      this.gameIsRunning = false;
     },
     calculateDamage(min, max) {
       return Math.max(Math.floor(Math.random()*max +1), min)
@@ -56,8 +80,13 @@ new Vue ({
       return false;
     },
     monsterAttack() {
-      this.playerHealth -= this.calculateDamage(5, 12);
+      damage = this.calculateDamage(5, 12);
+      this.playerHealth -= damage;
+      this.turns.unshift({
+        isPlayer: false,
+        text: 'Monster dealt ' + damage + ' points of damage!'
+      })
       this.checkWin()
-    }
+    },
   }
 });
