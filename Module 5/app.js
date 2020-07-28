@@ -4,7 +4,6 @@ var data = {
 }
 
 var vm1 = new Vue({
-  el: '#app1',
   data: data,
   methods: {
     show: function() {
@@ -28,6 +27,7 @@ var vm1 = new Vue({
   }
 });
 
+vm1.$mount('#app1');
 console.log(vm1.$data === data);
 vm1.$refs.heading.innerText = "Something else"
 
@@ -45,4 +45,10 @@ var vm2 = new Vue({
       vm1.title = 'Changed!'
     }
   }
+});
+
+var vm3 = new Vue({
+  template: '<h1>Hello!</h1>'
 })
+
+vm3.$mount('#app3')
