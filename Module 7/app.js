@@ -1,3 +1,7 @@
+// GLOBAL component:
+//Vue.component('my-cmd',{})
+
+//LOCAL component:
 var component = {
   data: function(){
     return {
