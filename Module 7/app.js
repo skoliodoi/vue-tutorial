@@ -1,4 +1,4 @@
-Vue.component('my-cmd',  {
+var component = {
   data: function(){
     return {
       status: 'Normal'
@@ -10,9 +10,17 @@ Vue.component('my-cmd',  {
       this.status = 'Critical';
     }
   }
-})
+}
 
 new Vue ({
   el: "#app",
+  components: {
+    'my-cmd': component
+  }
+
+})
+
+new Vue ({
+  el: "#app2",
 
 })
