@@ -22,7 +22,8 @@
     export default {
         data() {
           return {
-            name: 'Szymon'
+            name: 'Szymon',
+            age: 27
           }
         },
         components: {
