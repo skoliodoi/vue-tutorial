@@ -9,6 +9,8 @@
         <button @click="changeAge()">Edit Age with a Callback</button>
         <!--- This one is using an event bus -->
         <button @click="editBus">Edit Age with an Event Bus</button>
+
+        
     </div>
 </template>
 
@@ -24,8 +26,10 @@
       },
       editBus() {
         this.userAge = 40;
-        eventBus.$emit('ageWasChanged', this.userAge)
-      }
+        //eventBus.$emit('ageWasChanged', this.userAge)
+        //centralized version below:
+        eventBus.changeAge(this.userAge)
+      },
     }
   }
 </script>
