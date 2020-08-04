@@ -1,11 +1,25 @@
 <template>
     <div class="col-xs-12 col-sm-6">
-        <p>Server Details are currently not updated</p>
+        <p v-if="!server">Server Details are currently not updated</p>
+        <p v-else>Server #{{ server.id }} status is: {{ server.status }}</p>
     </div>
 
 </template>
 
 <script>
+  import { eventBus } from '../../main.js'
+  export default {
+    data() {
+      return{
+        server: null
+      }
+    },
+    created() {
+      eventBus.$on('serverSelection', (server) => {
+        this.server = server;
+      })
+    },
+  }
 </script>
 
 <style>
