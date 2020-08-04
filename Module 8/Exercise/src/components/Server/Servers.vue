@@ -1,17 +1,14 @@
 <template>
-    <div class="col-xs-12 col-sm-6">
-        <ul class="list-group">
-            <li
-                    class="list-group-item"
-                    v-for="index in 5">
-                Server #{{ index }}
-            </li>
-        </ul>
-    </div>
+  <server-list
+   :servers="servers"></server-list>
 </template>
 
 <script>
+  import ServerList from './ServerList.vue'
   export default {
+    components: {
+      'server-list': ServerList
+    },
     data: function() {
       return {
         servers: [
