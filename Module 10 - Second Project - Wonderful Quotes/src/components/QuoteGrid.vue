@@ -1,14 +1,18 @@
 <template>
   <div class="row">
-    <div v-for="each in myQuotes">
+    <app-quote v-for="each in myQuotes">
       {{ each }}
-    </div>
+    </app-quote>
   </div>
 </template>
 
 <script>
+import Quote from './Quote.vue'
 export default {
-  props: ['myQuotes']
+  props: ['myQuotes'],
+  components: {
+    appQuote: Quote
+  }
 }
 </script>
 
