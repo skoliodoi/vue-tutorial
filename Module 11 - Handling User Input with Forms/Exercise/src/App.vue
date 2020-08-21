@@ -33,15 +33,15 @@
                       v-model="userData.dataStore"> No
                     </label>
                   </div>
-                  <button
-                    class="btn btn-primary"
-                    @click.prevent="isSubmitted=!isSubmitted">Submit!
-                  </button>
+                 
                 
                                         <!-- Exercise 2 -->
                     <!-- Only display the Form if it has NOT been submitted -->
                     <!-- Display the Data Summary ONCE the Form HAS been submitted -->
-
+                   <button
+                    class="btn btn-primary"
+                    @click.prevent="isSubmitted=!isSubmitted">Submit!
+                  </button>
                     <!-- Exercise 3 -->
                     <!-- Edit the Example from above and create a custom "Full Name" Control -->
                     <!-- which still holds the First Name and Last Name Input Field -->
