@@ -9,10 +9,12 @@
                 v-app-on:background="'blue'">Testing</p>
             </div>
         </div>
+         <app-example></app-example>
     </div>
 </template>
 
 <script>
+    import ExerciseSolvedExample from './ExerciseSolvedExample.vue'
     export default {
       directives: {
         'app-on': {
@@ -28,6 +30,9 @@
         alertMe() {
           alert("IT LIVES")
         }
+      },
+      components: {
+        appExample: ExerciseSolvedExample
       }
     }
 </script>
