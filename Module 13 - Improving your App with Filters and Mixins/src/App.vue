@@ -6,6 +6,7 @@
         <p>{{ obiwanKenobi | to-lowercase }}</p>
         <p>{{ generalGrievous | to-uppercase }}</p>
         <hr>
+        <button @click="characters.push('Kylo Ren')">Add New</button>
         <input v-model="filteredText" />
         <ul>
           <li v-for="each in filteredList">{{ each }}</li>
