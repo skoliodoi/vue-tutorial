@@ -6,8 +6,10 @@
                 <hr>
                 <button class="btn btn-success"
                 @click="show=!show">Show alert</button>
-                <div class="alert alert-info info"
-                v-if="show">Some info</div>
+                <transition name="fade">
+                  <div class="alert alert-info info"
+                  v-if="show">Some info</div>
+                </transition>
             </div>
         </div>
     </div>
@@ -26,5 +28,19 @@
 <style>
  .info {
    margin-top: 10px;
+ }
+ .fade-enter {
+
+ }
+
+ .fade-enter-active {
+
+ }
+ .fade-leave {
+
+ }
+
+ .fade-leave-active {
+   
  }
 </style>
