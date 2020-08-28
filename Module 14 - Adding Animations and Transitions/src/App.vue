@@ -12,7 +12,7 @@
                 </transition>
                 <transition name="slide">
                   <div class="alert alert-info info"
-                  v-if="show">Some info</div>
+                  v-if="show">Some new info</div>
                 </transition>
             </div>
         </div>
