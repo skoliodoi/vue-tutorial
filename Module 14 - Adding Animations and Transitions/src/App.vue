@@ -14,6 +14,10 @@
                   <div class="alert alert-info info"
                   v-if="show">Some new info</div>
                 </transition>
+                <transition name="fade" appear>
+                  <div class="alert alert-info info"
+                  v-if="show">Some other info</div>
+                </transition>
             </div>
         </div>
     </div>
@@ -23,7 +27,7 @@
     export default {
         data() {
             return {
-              show: false
+              show: true
             }
         }
     }
