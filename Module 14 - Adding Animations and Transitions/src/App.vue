@@ -14,7 +14,10 @@
                   <div class="alert alert-info info"
                   v-if="show">Some new info</div>
                 </transition>
-                <transition name="fade" appear>
+                <transition  
+                appear
+                enter-active-class="animate__animated animate__rubberBand"
+                leave-active-class="animate__animated animate__swing">
                   <div class="alert alert-info info"
                   v-if="show">Some other info</div>
                 </transition>
