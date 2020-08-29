@@ -3,14 +3,18 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <h1>Animations</h1>
+                <select v-model="alertAnimation">
+                  <option value="fade">Fade</option>
+                  <option value="slide">Slide</option>
+                </select>
                 <hr>
                 <button class="btn btn-success"
                 @click="show=!show">Show alert</button>
-                <transition name="fade">
+                <transition :name="alertAnimation">
                   <div class="alert alert-info info"
                   v-if="show">Some info</div>
                 </transition>
-                <transition name="slide">
+                <transition :name="alertAnimation">
                   <div class="alert alert-info info"
                   v-if="show">Some new info</div>
                 </transition>
@@ -30,7 +34,8 @@
     export default {
         data() {
             return {
-              show: true
+              show: true,
+              alertAnimation: 'fade'
             }
         }
     }
