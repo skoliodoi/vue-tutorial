@@ -11,7 +11,7 @@
                 <button class="btn btn-success"
                 @click="show=!show">Show alert</button>
                 <transition :name="alertAnimation">
-                  <div class="alert alert-info info"
+                  <div class="alert alert-info"
                   v-if="show">Some info</div>
                 </transition>
                 <transition :name="alertAnimation">
@@ -22,8 +22,16 @@
                 appear
                 enter-active-class="animate__animated animate__rubberBand"
                 leave-active-class="animate__animated animate__swing">
-                  <div class="alert alert-info info"
+                  <div class="alert alert-info"
                   v-if="show">Some other info</div>
+                </transition>
+                <transition :name="alertAnimation" mode="out-in">
+                  <div class="alert alert-info"
+                  v-if="show"
+                  key="info">Some newer info</div>
+                  <div class="alert alert-warning"
+                  v-else
+                  key="warning">Some newer warning</div>
                 </transition>
             </div>
         </div>
@@ -42,9 +50,7 @@
 </script>
 
 <style>
- .info {
-   margin-top: 10px;
- }
+
  .fade-enter {
    opacity: 0;
  }
