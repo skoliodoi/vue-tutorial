@@ -33,6 +33,10 @@
                   v-else
                   key="warning">Some newer warning</div>
                 </transition>
+                <hr>
+                <hr>
+                <hr>
+                <button class="btn btn-primary" @click="load = !load">Load/Remove Element</button>
             </div>
         </div>
     </div>
@@ -42,7 +46,8 @@
     export default {
         data() {
             return {
-              show: true,
+              show: false,
+              load: true,
               alertAnimation: 'fade'
             }
         }
