@@ -37,6 +37,20 @@
                 <hr>
                 <hr>
                 <button class="btn btn-primary" @click="load = !load">Load/Remove Element</button>
+                <transition
+                @before-enter="beforeEnter"
+                @enter="enter"
+                @after-enter="afterEnter"
+                @enter-cancelled="enterCancelled"
+                
+                @before-leave="beforeLeave"
+                @leave="leave"
+                @after-leave="afterLeave"
+                @leave-cancelled="enterCancelled">
+                  <div
+                  v-if="load" 
+                  style="width: 100px; height:100px; background-color: green; margin-top:20px"></div>
+                </transition>
             </div>
         </div>
     </div>
@@ -50,6 +64,34 @@
               load: true,
               alertAnimation: 'fade'
             }
+        },
+        methods: {
+          beforeEnter(el) {
+            console.log("Before Enter")
+          },
+          enter(el, done) {
+            console.log("Enter")
+            done();
+          },
+          afterEnter(el){
+            console.log("After Enter")
+          },
+          enterCancelled(el) {
+            console.log("Enter Cancelled")
+          },
+          beforeLeave(el) {
+            console.log("Before Leave")
+          },
+          leave(el, done) {
+            console.log("Leave")
+            done()
+          },
+          afterLeave(el) {
+            console.log("After Leave")
+          },
+          leaveCancelled(el) {
+            console.log("Leave Cancelled")
+          }
         }
     }
 </script>
