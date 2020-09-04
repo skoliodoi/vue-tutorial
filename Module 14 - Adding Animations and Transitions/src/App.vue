@@ -50,7 +50,18 @@
                 :css="false">
                   <div
                   v-if="load" 
-                  style="width: 300px; height:100px; background-color: green; margin-top:20px"></div>
+                  style="width: 300px; height:100px; background-color: green; margin-top:20px">
+                  </div>
+                </transition>
+                <hr>
+                <button class="btn btn-primary"
+                style="margin-bottom:20px"
+                @click = "showAlert == 'app-success-alert' ? showAlert = 'app-danger-alert' : showAlert = 'app-success-alert'"
+                >Toggle Alerts</button>
+                <transition name="fade" mode="out-in">
+                  <component :is="showAlert">
+
+                  </component>
                 </transition>
             </div>
         </div>
@@ -58,13 +69,20 @@
 </template>
 
 <script>
+    import DangerAlert from './DangerAlert.vue'
+    import SuccessAlert from './SuccessAlert.vue'
     export default {
+        components: {
+          appDangerAlert: DangerAlert,
+          appSuccessAlert: SuccessAlert
+        },
         data() {
             return {
               show: false,
               load: true,
               alertAnimation: 'fade',
-              elementWidth: 100
+              elementWidth: 100,
+              showAlert: 'app-danger-alert'
             }
         },
         methods: {
