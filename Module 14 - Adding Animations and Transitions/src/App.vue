@@ -63,6 +63,18 @@
 
                   </component>
                 </transition>
+                <hr>
+                <button class="btn btn-secondary"
+                @click="addItem">Add Item</button>
+                <ul class="list-group">
+                  <li 
+                  @click="removeItem(index)"
+                  class="list-group-item" 
+                  v-for="(number, index) in numbers"
+                  style="cursor: pointer">
+                    {{ number }}
+                  </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -82,10 +94,19 @@
               load: true,
               alertAnimation: 'fade',
               elementWidth: 100,
-              showAlert: 'app-danger-alert'
+              showAlert: 'app-danger-alert',
+              numbers: [1, 2, 3, 4, 5]
             }
         },
         methods: {
+          addItem() {
+            let pos = Math.floor(Math.random() * this.numbers.length)
+            this.numbers.splice(pos, 0, this.numbers.length + 1)
+          },
+          removeItem(index) {
+            this.numbers.splice(index, 1)
+            console.log(index)
+          },
           beforeEnter(el) {
             console.log("Before Enter")
             this.elementWidth = 100;
