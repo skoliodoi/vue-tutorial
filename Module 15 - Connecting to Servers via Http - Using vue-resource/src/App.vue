@@ -14,6 +14,12 @@
                 </div>
                 <button class="btn btn-primary"
                 @click="submit">Submit</button>
+                <hr>
+                <button class="btn btn-secondary" @click="fetchData">Fetch</button>
+                <ul class="list-group">
+                  <li class="list-group-item" v-for="u in users">{{ u.name }} - {{ u.email }}</li>
+                </ul>
+                
             </div>
         </div>
     </div>
@@ -26,7 +32,8 @@
           user: {
             name: '',
             email: ''
-          }
+          },
+          users: []
         }
       },
       methods: {
@@ -36,6 +43,19 @@
               console.log(response)
             }, error => {
               console.log(error)
+            });
+        },
+        fetchData() {
+          this.$http.get('https://vue-intro-http.firebaseio.com/data.json')
+            .then(response => {
+              return response.json();
+            })
+            .then(data => {
+              const returnArray = [];
+              for (let key in data) {
+                returnArray.push(data[key]);
+              }
+              this.users = returnArray;
             });
         }
       }
