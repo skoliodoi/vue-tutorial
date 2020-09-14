@@ -3,11 +3,8 @@
     <router-link to="/" tag="li" active-class="active" exact>
     <a class="nav-link">Home</a>
     </router-link>
-    <router-link to="/user/1" tag="li" active-class="active">
-    <a class="nav-link">User 1</a>
-    </router-link>
-    <router-link to="/user/2" tag="li" active-class="active">
-    <a class="nav-link">User 2</a>
+    <router-link to="/user" tag="li" active-class="active">
+    <a class="nav-link">User</a>
     </router-link>
 </ul>
 </template>
