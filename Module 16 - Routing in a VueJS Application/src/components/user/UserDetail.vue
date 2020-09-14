@@ -4,7 +4,7 @@
     <p>This User ID is {{ $route.params.id }}</p>
     <router-link
     tag="button"
-    :to="'/user/' + $route.params.id + '/edit'"
+    :to="{ name: 'userEdit', params: { id: $route.params.id }, query: { local: 'en', q: 1000} }"
     class="btn btn-primary">
       Edit User
     </router-link>
