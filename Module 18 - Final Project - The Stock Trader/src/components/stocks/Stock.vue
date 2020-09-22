@@ -17,7 +17,8 @@
         </div>
         <div class="pull-right">
           <button class="btn btn-success"
-          @click="buyStock">Buy</button>
+          @click="buyStock"
+          :disabled="quantity <= 0">Buy</button>
         </div>
       </div>
     </div>
