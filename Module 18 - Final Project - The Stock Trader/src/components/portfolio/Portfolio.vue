@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card-group">
     <app-stock v-for="stock in stocks"
     :stock="stock"></app-stock>
   </div>
