@@ -5,7 +5,6 @@
         <h3 class="panel-title">
           {{ stock.name }}
           <small>(Price: {{ stock.price }})</small>
-          <small>({{ stock.id }})</small>
         </h3>
       </div>
       <div class="panel-body">
