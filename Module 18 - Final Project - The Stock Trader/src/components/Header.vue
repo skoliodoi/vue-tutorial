@@ -17,6 +17,7 @@
         active-class="active">Stocks </router-link>
       </li>
     </ul>
+
     <ul class="nav navbar-nav navbar-right">
       <li class="nav-item"><a href="" class="nav-link">End Day</a></li>
       <li class="nav-item dropdown">
@@ -35,13 +36,19 @@
         </div>
       </li>
     </ul>
-
+    <strong class="navbar-text navbar-right">Funds: {{ funds }}</strong>
   </div>
 </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    funds() {
+      return this.$store.getters.funds
+    }
+  }
+};
 </script>
 
 <style scoped>
