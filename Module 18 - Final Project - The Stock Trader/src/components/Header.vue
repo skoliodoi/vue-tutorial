@@ -34,7 +34,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#" @click="saveData">Save</a>
-          <a class="dropdown-item" href="#">Load</a>
+          <a class="dropdown-item" href="#"
+          @click="loadData">Load</a>
         </div>
       </li>
     </ul>
@@ -64,6 +65,9 @@ export default {
         stocks: this.$store.getters.stocks
       };
       this.$http.put('data.json', data);
+    },
+    loadData() {
+      
     }
   }
 };
