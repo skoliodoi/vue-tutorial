@@ -5,6 +5,16 @@
   </div>
 </template>
 
+<script>
+  import axios from "axios";
+  export default {
+    created() {
+      axios.get('https://vue-intro-http.firebaseio.com/users.json')
+        .then(res => console.log(res))
+    }
+  }
+</script>
+
 <style scoped>
   h1, p {
     text-align: center;
