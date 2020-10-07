@@ -69,6 +69,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     data () {
       return {
@@ -103,6 +104,8 @@
           terms: this.terms
         }
         console.log(formData)
+        axios.post('https://vue-intro-http.firebaseio.com/users.json', formData)
+          .then(response => console.log(response))
       }
     }
   }
