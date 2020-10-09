@@ -60,6 +60,17 @@ export default {
         rating: this.chosenRating,
       });
 
+      fetch('https://vue-intro-http.firebaseio.com/surveys.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: this.enteredName,
+          rating: this.chosenRating
+        })
+      });
+
       this.enteredName = '';
       this.chosenRating = null;
     },
