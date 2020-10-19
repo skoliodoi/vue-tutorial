@@ -5,8 +5,8 @@ import getters from './getters.js'
 export default {
   state() {
     return {
-      token: null,
       userId: null,
+      token: null,
       tokenExpiration: null
     };
   },
