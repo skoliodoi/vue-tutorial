@@ -11,9 +11,9 @@
       </div>
       <p v-if="!formIsValid">
         Please enter a valid email and password (must be at least 6 characters
-        long!
+        long!)
       </p>
-      <base-button>{{submitButtonCaption}}</base-button>
+      <base-button @click="submitForm">{{submitButtonCaption}}</base-button>
       <base-button type="button" mode="flat" @click="switchMode"
         >{{switchModeButtonCaption}}</base-button
       >
@@ -52,11 +52,20 @@ export default {
       this.formIsValid = true;
       if (
         this.email === "" ||
-        this.email.includes("@") ||
+        !this.email.includes("@") ||
         this.password.length < 6
       ) {
         this.formIsValid = false;
         return;
+      }
+
+      if (this.moge === 'login'){
+        //...
+      } else {
+        this.$store.dispatch('signup',{
+          email: this.email,
+          password: this.password
+        });
       }
     },
     switchMode() {
