@@ -1,44 +1,35 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-              <button @click="selectedComponent='appQuote'">Quote</button>
-              <button @click="selectedComponent='appAuthor'">Author</button>
-              <button @click="selectedComponent='appNew'">New</button>
-              <p>{{ selectedComponent }}</p>
-              <keep-alive>
-                <component :is="selectedComponent">
-                </component>
-              </keep-alive>
-              
-               <!--<app-quote>
-                 <h2 slot="title">{{ quoteTitle }}</h2>
-                 <p>A wonderful quote!</p>
-               </app-quote>-->
-            </div>
-        </div>
-    </div>
+  <div>
+    <the-header></the-header>
+    <badge-list></badge-list>
+    <user-info
+      :full-name="activeUser.name"
+      :info-text="activeUser.description"
+      :role="activeUser.role"
+    ></user-info>
+  </div>
 </template>
 
 <script>
-    import Quote from './components/Quote.vue'
-    import Author from './components/Author.vue'
-    import New from './components/New.vue'
-    export default {
-      data() {
-        return {
-          quoteTitle: 'The Quote',
-          selectedComponent: ''
-        }
+export default {
+  data() {
+    return {
+      activeUser: {
+        name: 'Maximilian Schwarzmüller',
+        description: 'Site owner and admin',
+        role: 'admin',
       },
-      components: {
-        appQuote: Quote,
-        appNew: New,
-        appAuthor: Author
-      }
-    }
+    };
+  },
+};
 </script>
 
 <style>
+html {
+  font-family: sans-serif;
+}
 
+body {
+  margin: 0;
+}
 </style>
