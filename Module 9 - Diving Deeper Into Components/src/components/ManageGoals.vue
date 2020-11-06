@@ -1,33 +1,35 @@
 <template>
-<div>
-  <h2>Manage Goals</h2>
-  <input type="text" ref="goal"/>
-  <button @click="setGoal">Set Goal</button>
-  <error-alert v-if="inputInvalid">
-    <h2>Input invalid!</h2>
-    <p>Write down something!</p>
-  </error-alert>
-</div>
+  <div>
+    <h2>Manage Goals</h2>
+    <input type="text" ref="goal" />
+    <button @click="setGoal">Set Goal</button>
+    <teleport to="body">
+      <error-alert v-if="inputInvalid">
+        <h2>Input invalid!</h2>
+        <p>Write down something!</p>
+      </error-alert>
+    </teleport>
+  </div>
 </template>
 
 <script>
-import ErrorAlert from './ErrorAlert.vue'
+import ErrorAlert from "./ErrorAlert.vue";
 export default {
   components: {
-    ErrorAlert
+    ErrorAlert,
   },
-  data(){
+  data() {
     return {
       inputInvalid: false,
-    }
+    };
   },
   methods: {
     setGoal() {
       const enteredValue = this.$refs.goal.value;
-      if (enteredValue === '') {
-        this.inputInvalid = true
+      if (enteredValue === "") {
+        this.inputInvalid = true;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
