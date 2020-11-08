@@ -1,9 +1,7 @@
-import Vue from 'vue'
-import App from './App.vue'
-import { store } from './store/store'
+import { createApp } from 'vue';
 
-new Vue({
-  el: '#app',
-  store,
-  render: h => h(App)
-})
+import App from './App.vue';
+
+const app = createApp(App);
+
+app.mount('#app');
