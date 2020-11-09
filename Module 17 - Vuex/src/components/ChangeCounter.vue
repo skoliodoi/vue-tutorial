@@ -6,7 +6,7 @@
 export default {
   methods: {
     addOne() {
-      this.$store.commit('addOne')
+      this.$store.dispatch('increaseAsync')
     }
   }
 }
