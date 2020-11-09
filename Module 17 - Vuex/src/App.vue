@@ -1,7 +1,7 @@
 <template>
   <base-container title="Vuex">
   <h3>{{ $store.state.counter }}</h3>
-  <button @click="addOne">Add 1</button>
+  <button @click="addThree(3)">Add 3</button>
   <change-counter></change-counter>
   </base-container>
 </template>
@@ -12,8 +12,8 @@ import ChangeCounter from './components/ChangeCounter.vue';
 
 export default {
   methods: {
-    addOne() {
-      this.$store.state.counter += 11;
+    addThree(val) {
+      this.$store.commit('increase', val)
     }
   },
   components: {
