@@ -5,13 +5,17 @@
   <button @click="addThree(3)">Add 3</button>
   <change-counter></change-counter>
   </base-container>
+  <base-container>
+    <user-auth></user-auth>
+  </base-container>
 </template>
 
 <script>
 import TheCounter from './components/TheCounter.vue'
 import BaseContainer from './components/BaseContainer.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
-import FavouriteValue from './components/FavouriteValue.vue'
+import FavouriteValue from './components/FavouriteValue.vue';
+import UserAuth from './components/UserAuth.vue';
 
 export default {
   methods: {
@@ -23,7 +27,8 @@ export default {
     TheCounter,
     BaseContainer,
     ChangeCounter,
-    FavouriteValue
+    FavouriteValue,
+    UserAuth
   },
 };
 </script>

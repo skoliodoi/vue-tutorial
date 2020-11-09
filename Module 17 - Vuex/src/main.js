@@ -6,7 +6,8 @@ import App from './App.vue';
 const store = createStore({
   state() {
     return {
-      counter: 0
+      counter: 0,
+      isLoggedIn: false
     }
   },
   mutations: {
@@ -15,9 +16,20 @@ const store = createStore({
     },
     increase(state, payload) {
       state.counter += payload
+    },
+    login(state) {
+      state.isLoggedIn = true
+      console.log(state.isLoggedIn)
+    },
+    logout(state) {
+      state.isLoggedIn = false
+      console.log(state.isLoggedIn)
     }
   },
   getters: {
+    loggedIn(state) {
+      return state.isLoggedIn
+    },
     finalCounter(state) {
       return state.counter * 2
     },
