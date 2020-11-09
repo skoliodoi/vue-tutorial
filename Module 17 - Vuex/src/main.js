@@ -34,6 +34,7 @@ const store = createStore({
   },
   actions: {
     increaseAsync(context) {
+      console.log(context)
       setTimeout(() => {
         context.commit('increment')
       },2000)
