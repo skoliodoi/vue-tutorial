@@ -1,14 +1,17 @@
 <template>
   <base-container title="Vuex">
-  <h3>{{ $store.state.counter }}</h3>
+  <the-counter></the-counter>
+  <favourite-value></favourite-value>
   <button @click="addThree(3)">Add 3</button>
   <change-counter></change-counter>
   </base-container>
 </template>
 
 <script>
+import TheCounter from './components/TheCounter.vue'
 import BaseContainer from './components/BaseContainer.vue';
 import ChangeCounter from './components/ChangeCounter.vue';
+import FavouriteValue from './components/FavouriteValue.vue'
 
 export default {
   methods: {
@@ -17,8 +20,10 @@ export default {
     }
   },
   components: {
+    TheCounter,
     BaseContainer,
-    ChangeCounter
+    ChangeCounter,
+    FavouriteValue
   },
 };
 </script>
