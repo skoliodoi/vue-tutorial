@@ -2,7 +2,7 @@
   <form @submit.prevent="submitForm">
     <div class="form-control" :class="{invalid: userNameValidity === 'invalid'}">
       <label for="user-name">Your Name</label>
-      <input id="user-name" name="user-name" type="text" v-model="userName" @blur="validateInput"/>
+      <input id="user-name" name="user-name" type="text" v-model.trim="userName" @blur="validateInput"/>
       <p v-if="userNameValidity === 'invalid'">Please enter a valid username!</p>
     </div>
     <div class="form-control">
@@ -66,7 +66,7 @@
       </div>
     </div>
     <div class="form-contro">
-      <rating-control></rating-control>
+      <rating-control v-model="rating"></rating-control>
     </div>
     <div class="form-control">
       <input type="checkbox" id="confirm-terms" name="confirm-terms" v-model="confirm"/>
@@ -92,7 +92,8 @@ export default {
       interest: [],
       how: null,
       confirm: false,
-      userNameValidity: 'pending'
+      userNameValidity: 'pending',
+      rating: null
     };
   },
   methods: {
@@ -114,6 +115,9 @@ export default {
       console.log('Confirm?')
       console.log(this.confirm)
       this.confirm = false;
+      console.log('Rating:');
+      console.log(this.rating);
+      this.rating = null;
     },
     validateInput() {
       if (this.userName === '') {
