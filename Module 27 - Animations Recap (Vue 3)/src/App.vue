@@ -62,10 +62,11 @@ button:active {
 }
 
 .animate {
-  transform: translateX(-150px);
+  /* transform: translateX(-150px); */
+  animation: slide-fade 0.3s ease-out forwards;
 }
 .block {
-  transition: transform 0.3s ease-out;
+  /* transition: transform 0.3s ease-out; */
   width: 8rem;
   height: 8rem;
   background-color: #290033;
@@ -81,5 +82,17 @@ button:active {
   padding: 2rem;
   border: 2px solid #ccc;
   border-radius: 12px;
+}
+
+@keyframes slide-fade {
+  0% {
+    transform: translateX(0) scale(1);
+  } 
+  70% {
+    transform: translateX(-120px) scale(1.1);
+  }
+  100% {
+    transform: translateX(-150px) scale(1);
+  }
 }
 </style>
