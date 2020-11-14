@@ -24,14 +24,17 @@ const router = createRouter({
     { path: '/users', components: { default: UsersList, footer: UsersFooter } },
     { path: '/:catchAll(.*)', redirect: '/teams' }
   ],
-  scrollBehavior(to, from,savedPosition) {
-    console.log(to,from,savedPosition)
+  scrollBehavior(_, _2,savedPosition) {
     if (savedPosition) {
       return savedPosition
     } {
       return { left: 0, top: 0 }
     }
   }
+});
+
+router.beforeEach((to, from, next) => {
+
 })
 
 const app = createApp(App)
