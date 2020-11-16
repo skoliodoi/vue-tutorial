@@ -1,6 +1,9 @@
 <template>
   <div>
     <div class="container">
+      <list-data></list-data>
+    </div>
+    <div class="container">
       <div class="block" :class="{ animate: animatedBlock }"></div>
       <button @click="animateBlock">Animate</button>
     </div>
@@ -37,23 +40,27 @@
 </template>  
 
 <script>
+import ListData from "./components/ListData.vue";
 export default {
+  components: {
+    ListData,
+  },
   data() {
     return {
       dialogIsVisible: false,
       animatedBlock: false,
       parVisible: false,
       usersAreVisible: false,
-      enterInterval:  null,
-      leaveInterval: null
+      enterInterval: null,
+      leaveInterval: null,
     };
   },
   methods: {
     enterCancelled() {
-      clearInterval(this.enterInterval)
+      clearInterval(this.enterInterval);
     },
     leaveCancelled() {
-      clearInterval(this.leaveInterval)
+      clearInterval(this.leaveInterval);
     },
     beforeEnter(el) {
       el.style.opacity = 0;
